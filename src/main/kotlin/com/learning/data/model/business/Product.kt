@@ -7,7 +7,7 @@ data class Product(
     val description: String,
     val category: String,
     val image: String?,
-    val rating: ProductRating
+    val rating: ProductRating?=null
 )
 
 data class ProductRating(
