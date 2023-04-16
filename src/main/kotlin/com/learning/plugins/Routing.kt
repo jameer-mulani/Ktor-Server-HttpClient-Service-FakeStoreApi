@@ -1,5 +1,6 @@
 package com.learning.plugins
 
+import com.learning.routes.storeRouting
 import io.ktor.server.routing.*
 import io.ktor.server.response.*
 import io.ktor.server.plugins.autohead.*
@@ -11,5 +12,7 @@ fun Application.configureRouting() {
         get("/") {
             call.respondText("Hello World!")
         }
+
+        storeRouting()
     }
 }
