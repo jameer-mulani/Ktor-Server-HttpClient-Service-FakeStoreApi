@@ -30,6 +30,17 @@ fun Routing.storeRouting() {
             call.respond(result)
         }
 
+        param(name = "limit"){
+            get {
+                val value = call.request.queryParameters["limit"]
+                val url = FakeStoreApi.GET_PRODUCT_WITH_LIMIT+value
+                val result = MyHttpClient.getClient()
+                    .get(url)
+                    .body<List<Product>>()
+                call.respond(result)
+            }
+        }
+
     }
 
 }
