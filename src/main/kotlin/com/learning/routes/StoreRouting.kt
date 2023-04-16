@@ -21,6 +21,15 @@ fun Routing.storeRouting() {
             call.respond(result)
         }
 
+        get("/{id}"){
+            val id = call.parameters["id"]
+            val url = FakeStoreApi.GET_SINGLE_PRODUCT+"$id"
+            val result = MyHttpClient.getClient()
+                .get(url)
+                .body<Product>()
+            call.respond(result)
+        }
+
     }
 
 }
